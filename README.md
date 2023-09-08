@@ -4,10 +4,13 @@ This project consists of a set of scripts that can be used to automate the proce
 
 
 ## Built with
-  * [Flask](https://flask.palletsprojects.com)
-  * [NodeJS](https://nodejs.org/) and [Express](https://expressjs.com/) 
-  * Hosting: [Render](https://render.com/)
-
+* [Flask](https://flask.palletsprojects.com)
+* [NodeJS](https://nodejs.org/) and [Express](https://expressjs.com/) 
+    * [APScheduler](https://apscheduler.readthedocs.io/en/stable/) - A light but powerful in-process task scheduler that lets you schedule functions (or any other python callables) to be executed at times of your choosing.
+    * [node-cron](https://www.npmjs.com/package/node-cron) - A simple cron-like job scheduler for Node.js
+    * [nodemailer](https://nodemailer.com/about/) - A module for Node.js applications to allow easy as cake email sending
+    * [Twilio](https://www.twilio.com/docs/libraries/node) - A module for Node.js applications to allow easy as cake SMS sending
+    * [OpenWeatherMap](https://openweathermap.org/api) - An API for getting weather updates
 
 ## Getting Started
 Download the project code locally
@@ -16,15 +19,15 @@ Download the project code locally
 
 ## Prerequisites
 * [Python 3](https://www.python.org/downloads/)
-* [NodeJS](https://nodejs.org/en/download/)
-* [npm](https://www.npmjs.com/get-npm)
 * [pip](https://pip.pypa.io/en/stable/installing/)
 * [virtualenv](https://virtualenv.pypa.io/en/latest/installation/)
+* [NodeJS](https://nodejs.org/en/download/)
+* [npm](https://www.npmjs.com/get-npm)
 * [git](https://git-scm.com/downloads)
 * [curl](https://curl.haxx.se/download.html)
 * [jq](https://stedolan.github.io/jq/download/)
-* [Render](https://render.com/)
-
+* [Twilio](https://www.twilio.com/docs/usage/tutorials/how-to-use-your-free-trial-account)
+* [OpenWeatherMap](https://openweathermap.org/api)
 
 
 ## Flask Cron Jobs
