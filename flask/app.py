@@ -24,8 +24,8 @@ def index():
 @app.route('/demo_job', methods=['GET'])
 def start_job():
     job_id = 'demo_job'
-    # scheduler.add_job(my_scheduled_job, 'cron', second=1)  # Runs at specific time
-    scheduler.add_job(jobs.my_scheduled_job, 'interval', seconds=1, id=job_id)  # Schedule job_function to be called every minute
+    # scheduler.add_job(my_scheduled_job, 'cron', second=1) 
+    scheduler.add_job(jobs.my_scheduled_job, 'interval', seconds=1, id=job_id)  # Schedule job_function to be called every second
     return jsonify({'status': 'Job added successfully'})
 
 
