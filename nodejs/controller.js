@@ -26,7 +26,8 @@ exports.startMailCronJob = async(req, res) => {
 exports.startSmsCronJob = async(req, res) => {
     console.log('SMS Cron job started');
     res.send('SMS Cron job started\n')
-    job = cron.schedule('*/5 * * * * *', async () => {
+    // job that runs every weekday at 9:45am
+    smsJob = cron.schedule('45 9 * * 1-5', async () => {
     try {   
         recipients = ['+2348036525904']
         message = await weatherService('Lagos');
