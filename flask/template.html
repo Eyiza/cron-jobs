@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Job Listings</title>
+</head>
+<body>
+    <h1>Google Career Job Listings</h1>
+    <ul>
+        {% for job in jobs %}
+            <li>
+                <h3>{{ job.title }}</h3>
+                <!-- <p>{{ job.company }}</p> -->
+                <p>{{ job.location }}</p>
+                <a href="{{ job.url }}" target="_blank">Learn More</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

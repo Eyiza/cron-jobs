@@ -12,7 +12,7 @@ let transporter = nodemailer.createTransport({
     }
 })
 
-let recipients = ['precious.michael2002@gmail.com']
+let recipients = ['cronjob@mailinator.com']
 let mailOptions = {
     from: 'process.env.EMAILUSER',
     to: recipients,
@@ -20,11 +20,11 @@ let mailOptions = {
     text: `Hello, this is a test email from Node Cron.`
 };
 
-// Function to start a cron job that runs two minutes
+// Function to start a cron job that runs every 5 seconds
 function startCronJob(req, res) {
     console.log('Cron job started');
     res.send('Cron job started\n')
-    job = cron.schedule('*/2 * * * *', async () => {
+    job = cron.schedule('*/5 * * * * *', async () => {
     try {   
         transporter.sendMail(mailOptions, (err, info) => {
             if (err) {

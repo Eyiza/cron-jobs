@@ -7,11 +7,11 @@ def init_app(app):
     mail.init_app(app)
 
 
-def send_email(to, subject, template):
+def send_email(to, subject, template, sender):
     msg = Message(
         subject,
         recipients=[to],
         html=template,
-        sender=os.environ.get("MAIL_USERNAME")
+        sender=sender
     )
     mail.send(msg)
