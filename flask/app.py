@@ -36,6 +36,14 @@ def send_joblistings():
     scheduler.add_job(jobs.job_listings, args=(app,), trigger=trigger, id=job_id) 
     return jsonify({'status': 'Job added successfully'})
 
+@app.route('/news', methods=['GET'])
+def send_news():
+    job_id = 'news'
+    # trigger = CronTrigger(day_of_week='mon', hour=9)
+    # scheduler.add_job(jobs.news, args=(app,), trigger=trigger, id=job_id)
+    jobs.news()
+    return jsonify({'status': 'Job added successfully'})
+
 
 @app.route('/stop_job/<job_id>', methods=['GET'])
 def stop_job(job_id):

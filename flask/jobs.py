@@ -22,3 +22,15 @@ def job_listings(app):
         
         mailservice.send_email(recipient, subject, template, sender)
         print ('Email sent successfully')
+
+def news():
+    # with app.app_context():
+    scraped_news = scraper.scrape_news()
+
+        # Load the email template
+        # with open('template.html', 'r') as template_file:
+        #     email_template = template_file.read()
+
+        # template = render_template_string(email_template, news=scraped_news)
+        
+        # recipient = '
