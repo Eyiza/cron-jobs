@@ -6,10 +6,10 @@ const authToken = process.env.TWILIO_AUTH_TOKEN;
 
 const client = twilio(accountSid, authToken);
 
-function smsService(recipients) {
+function smsService(recipients, message) {
     client.messages
     .create({
-        body: 'Hello, this is a test SMS from Node Cron.',
+        body: message,
         from: process.env.TWILIO_PHONE_NUMBER,
         to: recipients
     })
