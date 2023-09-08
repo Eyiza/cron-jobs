@@ -15,15 +15,15 @@ Download the project code locally
 
 
 ## Prerequisites
-    * [Python 3](https://www.python.org/downloads/)
-    * [NodeJS](https://nodejs.org/en/download/)
-    * [npm](https://www.npmjs.com/get-npm)
-    * [pip](https://pip.pypa.io/en/stable/installing/)
-    * [virtualenv](https://virtualenv.pypa.io/en/latest/installation/)
-    * [git](https://git-scm.com/downloads)
-    * [curl](https://curl.haxx.se/download.html)
-    * [jq](https://stedolan.github.io/jq/download/)
-    * [Render](https://render.com/)
+* [Python 3](https://www.python.org/downloads/)
+* [NodeJS](https://nodejs.org/en/download/)
+* [npm](https://www.npmjs.com/get-npm)
+* [pip](https://pip.pypa.io/en/stable/installing/)
+* [virtualenv](https://virtualenv.pypa.io/en/latest/installation/)
+* [git](https://git-scm.com/downloads)
+* [curl](https://curl.haxx.se/download.html)
+* [jq](https://stedolan.github.io/jq/download/)
+* [Render](https://render.com/)
 
 
 
@@ -94,11 +94,12 @@ Create a `.env` file at the `flask` level and add the variables to it (otherwise
 MAIL_USERNAME=your_email_address
 MAIL_PASSWORD=your_email_password
 ``` 
-Other variables that can be configured include:
+Other variables that can be updated include:
 1. `MAIL_RECIPIENT` - The email address of the recipient
 
 
 ### NodeJS
+Before running the application, you need to configure the following environment variables:
 1. `EMAILUSER` - The email address of the sender
 2. `EMAILPASS` - The password of the sender's email address
 3. `TWILIO_ACCOUNT_SID` - The Twilio account SID
@@ -111,3 +112,33 @@ Other variables that can be updated include:
 1. `MAIL_RECIPIENT` - The email address of the recipient
 2. `RECIPIENT_PHONE_NUMBER` - The recipient's phone number
 
+
+## API Endpoints
+### Flask
+1. `/` - The home page
+2. `/demo_job` - The endpoint that starts the demo cron job
+3. `/job_listings` - The endpoint that starts the Google Careers cron job
+4. `/news` - The endpoint that starts the Variety News cron job
+5. `/stop_job/<job_id>` - The endpoint that stops the cron job with the given job ID
+6. `/stop_jobs` - The endpoint that stops all the cron jobs
+
+
+### NodeJS
+1. `/startmail` - The endpoint that starts the email cron job
+2. `/startsms` - The endpoint that starts the weather cron job
+3. `/stopmail` - The endpoint that stops the email cron job
+4. `/stopsms` - The endpoint that stops the weather cron job
+5. `/stopall` - The endpoint that stops all the cron jobs
+
+**Note** - Curl commands can be used to start and stop the cron jobs. For example, to start the flask demo cron job, run the following command:
+```bash
+curl http://localhost:5000/demo_job
+```
+To stop the demo cron job, run the following command:
+```bash
+curl http://localhost:5000/stop_job/demo_job
+``` 
+
+
+## Author
+Precious Michael - [preciousmichael](https://eyiza.github.io/precious-michael/)
