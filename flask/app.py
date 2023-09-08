@@ -16,25 +16,41 @@ scheduler.start()
 mailservice.init_app(app)
 
 
-@app.route('/start_job', methods=['GET'])
+@app.route('/', methods=['GET'])
+def index():
+    return jsonify({'status': 'Application is running'})
+
+
+@app.route('/demo_job', methods=['GET'])
 def start_job():
+    job_id = 'demo_job'
     # scheduler.add_job(my_scheduled_job, 'cron', second=1)  # Runs at specific time
-    scheduler.add_job(jobs.my_scheduled_job, 'interval', seconds=1)  # Schedule job_function to be called every minute
+    scheduler.add_job(jobs.my_scheduled_job, 'interval', seconds=1, id=job_id)  # Schedule job_function to be called every minute
     return jsonify({'status': 'Job added successfully'})
 
 
 @app.route('/job_listings', methods=['GET'])
 def send_joblistings():
-    with app.app_context():
-        # Schedule the job to run at 9 AM every Monday
-        trigger = CronTrigger(day_of_week='fri', hour=8, minute=41)
-        scheduler.add_job(jobs.job_listings, trigger=trigger) 
-        # jobs.job_listings()
-        return jsonify({'status': 'Job added successfully'})
+    job_id = 'job_listings'
+    trigger = CronTrigger(day_of_week='mon', hour=9) # Schedule the job to run at 9 AM every Monday
+    scheduler.add_job(jobs.job_listings, args=(app,), trigger=trigger, id=job_id) 
+    return jsonify({'status': 'Job added successfully'})
+
+
+@app.route('/stop_job/<job_id>', methods=['GET'])
+def stop_job(job_id):
+    try:
+        scheduler.remove_job(job_id)  # Stop the specific job using its job_id
+        return jsonify({'status': f'Job {job_id} stopped successfully'})
+    except Exception as e:
+        return jsonify({
+            'error': f'Error stopping job',
+            'message': f'{str(e)}'
+            })
 
 
 @app.route('/stop_jobs', methods=['GET'])
-def stop_job():
+def stop_all_jobs():
     scheduler.remove_all_jobs()  # Stop all jobs
     return jsonify({'status': 'All jobs stopped'})
 
