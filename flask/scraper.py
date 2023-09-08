@@ -34,7 +34,7 @@ def scrape_jobs():
 def scrape_news():
     url = "https://variety.com/"
     response = requests.get(url)
-    
+
     soup = BeautifulSoup(response.text, 'html.parser')
     articles = soup.find_all('h3', id = 'title-of-a-story')
 
@@ -48,11 +48,6 @@ def scrape_news():
         headline = news.text.strip()
         url = news.find('a')['href']
         count += 1
-
-        # print(
-        #     f"Headline: {headline}\n"
-        #     f"URL: {url}\n"
-        # )
 
         scraped_news.append({
             headline, url

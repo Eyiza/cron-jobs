@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Variety News</title>
+</head>
+<body>
+    <h1>Daily Variety News</h1>
+    <ul>
+        {% for news in news %}
+            <li>
+                <h3>{{ news.headline }}</h3>
+                <a href="{{ news.url }}" target="_blank">View News</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
