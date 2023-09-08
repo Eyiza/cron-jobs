@@ -34,8 +34,8 @@ exports.startSmsCronJob = async(req, res) => {
         await smsService(recipients, message);
     }
     catch (err) {
-        console.error(err.message);
-        }
+        console.error('Error sending SMS:', err.message);
+      }
     })
 };
 
@@ -62,4 +62,19 @@ exports.stopSmsCronJob = (req, res) => {
       console.log('SMS Cron job is not running');
       res.send('SMS Cron job is not running\n');
   }
+}
+
+// Function to stop all cron jobs
+exports.stopAllCronJobs = (req, res) => {
+  if (mailJob) {
+      mailJob.stop();
+      console.log('Mail Cron job stopped');
+      // res.write('Mail Cron job stopped\n');
+  }
+  if (smsJob) {
+      smsJob.stop();
+      console.log('SMS Cron job stopped');
+      // res.write('SMS Cron job stopped\n');
+  } 
+  res.send('All Cron jobs stopped\n');
 }
