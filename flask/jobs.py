@@ -11,7 +11,7 @@ def job_listings(app):
         scraped_jobs = scraper.scrape_jobs()
 
         # Load the email template
-        with open('template.html', 'r') as template_file:
+        with open('templates/jobs_template.html', 'r') as template_file:
             email_template = template_file.read()
 
         template = render_template_string(email_template, jobs=scraped_jobs)
@@ -23,14 +23,18 @@ def job_listings(app):
         mailservice.send_email(recipient, subject, template, sender)
         print ('Email sent successfully')
 
-def news():
-    # with app.app_context():
-    scraped_news = scraper.scrape_news()
+def news(app):
+    with app.app_context():
+        scraped_news = scraper.scrape_news()
 
-        # Load the email template
-        # with open('template.html', 'r') as template_file:
-        #     email_template = template_file.read()
+        with open('templates/news_template.html', 'r') as template_file:
+            email_template = template_file.read()
 
-        # template = render_template_string(email_template, news=scraped_news)
+        template = render_template_string(email_template, articles=scraped_news)
         
-        # recipient = '
+        recipient = 'news@mailinator.com'
+        subject = "Variety News"
+        sender = "News Scraping"
+        
+        mailservice.send_email(recipient, subject, template, sender)
+        print ('Email sent successfully')

@@ -50,7 +50,8 @@ def scrape_news():
         count += 1
 
         scraped_news.append({
-            headline, url
+            'headline': headline,
+            'url': url
         })
 
 
