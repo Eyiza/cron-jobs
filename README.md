@@ -6,11 +6,12 @@ This project consists of a set of scripts that can be used to automate the proce
 ## Built with
 * [Flask](https://flask.palletsprojects.com)
    * [APScheduler](https://apscheduler.readthedocs.io/en/stable/) - A light but powerful in-process task scheduler that lets you schedule functions (or any other python callables) to be executed at times of your choosing.
+   * [Flask Mail](https://pythonhosted.org/Flask-Mail/) - A package for Flask that makes it easy to send emails.
 * [NodeJS](https://nodejs.org/) and [Express](https://expressjs.com/) 
-    * [node-cron](https://www.npmjs.com/package/node-cron) - A simple cron-like job scheduler for Node.js
-    * [nodemailer](https://nodemailer.com/about/) - A module for Node.js applications to allow easy as cake email sending
-    * [Twilio](https://www.twilio.com/docs/libraries/node) - A module for Node.js applications to allow easy as cake SMS sending
-    * [OpenWeatherMap](https://openweathermap.org/api) - An API for getting weather updates
+    * [node-cron](https://www.npmjs.com/package/node-cron) - A package for Node.js that allows you to schedule cron jobs.
+    * [nodemailer](https://nodemailer.com/about/) - A module for Node.js applications to allow email sending.
+    * [Twilio](https://www.twilio.com/docs/libraries/node) - A module for Node.js applications to allow SMS sending.
+    * [OpenWeatherMap](https://openweathermap.org/api) - An API for getting weather updates.
 
 
 ## Getting Started
