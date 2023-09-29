@@ -13,7 +13,6 @@ This project consists of a set of scripts that can be used to automate the proce
     * [Twilio](https://www.twilio.com/docs/libraries/node) - A module for Node.js applications to allow SMS sending.
     * [OpenWeatherMap](https://openweathermap.org/api) - An API for getting weather updates.
 
-
 ## Getting Started
 Download the project code locally
 [Fork](https://help.github.com/en/articles/fork-a-repo) the project repository and [clone](https://help.github.com/en/articles/cloning-a-repository) your forked repository to your machine. 
